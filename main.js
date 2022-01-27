@@ -3,6 +3,7 @@ var shoppingCart = document.getElementsByClassName('shopping-cart')[0];
 var products = document.getElementsByClassName('products')[0];
 
 var cart = [];
+var total = 0;
 
 // shopping cart listener
 viewCartButton.addEventListener('click', function () {
@@ -37,12 +38,18 @@ products.addEventListener('click', function (e) {
 var renderHTML = function() {
   var cartList = document.getElementsByClassName('cart-list')[0];
   cartList.innerHTML = '';
-  
   var items = '';
+  var total = 0;
 
   for (let i = 0; i < cart.length; i++) {
     items += '<div>' + cart[i].name + " - $" + cart[i].price + '</div>';
+    total += Number.parseInt(cart[i].price);
+    document.getElementsByClassName('total')[0].innerHTML = total;
   }
 
   cartList.innerHTML = items;
+  
 };
+
+
+// TODO: make clear cart button work - exercise 2
