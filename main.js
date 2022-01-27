@@ -1,17 +1,8 @@
 var viewCartButton = document.getElementsByClassName('view-cart')[0];
 var shoppingCart = document.getElementsByClassName('shopping-cart')[0];
 var products = document.getElementsByClassName('products')[0];
-var buyButtons = document.getElementsByClassName('add-to-cart');
 
-
-// my first attempt
-// viewCartButton.addEventListener('click', function () {
-//   if (shoppingCart.style.display === '') {
-//     shoppingCart.style.display = 'block';
-//   } else {
-//     shoppingCart.style.display = '';
-//   }
-// });
+var cart = [];
 
 // shopping cart listener
 viewCartButton.addEventListener('click', function () {
@@ -24,7 +15,18 @@ viewCartButton.addEventListener('click', function () {
 
 // add to cart listener
 products.addEventListener('click', function (e) {
-  if (e.target.classList.contains("add-to-cart")) {
-    console.log("click button");
+  if (e.target.classList.contains('add-to-cart')) {
+    var itemName = e.target.closest('.item')
+      .getAttribute('data-name');
+
+    var itemPrice = e.target.closest('.item')
+      .getAttribute('data-price');
+
+    var product = {
+      name: itemName,
+      price: itemPrice
+    };
+    
+    cart.push(product);
   }
 });
