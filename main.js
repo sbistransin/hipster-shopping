@@ -1,6 +1,7 @@
 var viewCartButton = document.getElementsByClassName('view-cart')[0];
 var shoppingCart = document.getElementsByClassName('shopping-cart')[0];
 var products = document.getElementsByClassName('products')[0];
+var clearCartButton = document.getElementsByClassName('clear-cart')[0];
 
 var cart = [];
 var total = 0;
@@ -35,6 +36,7 @@ products.addEventListener('click', function (e) {
   }
 });
 
+
 var renderHTML = function() {
   var cartList = document.getElementsByClassName('cart-list')[0];
   cartList.innerHTML = '';
@@ -52,4 +54,15 @@ var renderHTML = function() {
 };
 
 
-// TODO: make clear cart button work - exercise 2
+// add clear cart listener
+clearCartButton.addEventListener('click', function(e) {
+  
+  cart = [];
+  var cartList = document.getElementsByClassName('cart-list')[0];
+  cartList.innerHTML = '';
+  
+  var total = document.getElementsByClassName('total')[0].innerHTML = 0;
+  
+  
+})
+
