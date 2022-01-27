@@ -26,7 +26,23 @@ products.addEventListener('click', function (e) {
       name: itemName,
       price: itemPrice
     };
-    
+
     cart.push(product);
+
+    renderHTML();
+    
   }
 });
+
+var renderHTML = function() {
+  var cartList = document.getElementsByClassName('cart-list')[0];
+  cartList.innerHTML = '';
+  
+  var items = '';
+
+  for (let i = 0; i < cart.length; i++) {
+    items += '<div>' + cart[i].name + " - $" + cart[i].price + '</div>';
+  }
+
+  cartList.innerHTML = items;
+};
